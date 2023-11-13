@@ -15,7 +15,7 @@ public class House {
         List<String> age = new ArrayList<String>();
 
         for (Map.Entry entry : namesAndAge.entrySet()) {
-            if ((int)entry.getValue() > 18) {
+            if ((int) entry.getValue() > 18) {
 
                 age.add(entry.getKey().toString());
             }

@@ -3,11 +3,18 @@ package Task3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private String name;
     private String surname;
     private String patronymic;
     private List<Integer> score = new ArrayList<>();
+
+    public Student(String name, String surname, String patronymic, List<Integer> score) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.score = score;
+    }
 
     public String getName() {
         return name;
@@ -34,9 +41,18 @@ public class Student {
     public void setScore(List<Integer> score) {
         this.score = score;
     }
+    public double average() {
+        double sum = 0;
 
-    public void winnerList(String winnerList) {
+        for (int value : this.score) {
+            sum += value;
+        }
 
+        return sum / this.score.size();
     }
 
+    @Override
+    public int compareTo(Student o) {
+        return Double.compare(average(), o.average());
+    }
 }
